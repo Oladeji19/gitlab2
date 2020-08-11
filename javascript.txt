@@ -1,0 +1,50 @@
+var score = 0;
+var lives = 3;
+onEvent("raspberries", "click", function() {
+  score = score+1;
+ setText("label6", score);
+  setPosition("raspberries", randomNumber(50,280), randomNumber(50, 350));
+ if(score == 10) {
+ setScreen("win_screen");
+ }
+});
+onEvent("background", "click", function() {
+  lives = lives - 1; 
+ if (lives ==0) { 
+  setScreen("lose_screen"); 
+ }
+setText("label7", lives);
+}); 
+onEvent("start_button", "click", function() {
+  setScreen("game_screen");
+});
+onEvent("raspberries", "click", function() {
+  setPosition("raspberries", randomNumber(50,280), randomNumber(50, 350));
+});
+onEvent("tryAgain_button", "click", function() {
+  setScreen("welcome_screen");
+  score = 0;
+  setText("label6",score);
+  lives = 3;
+  setText("label7",lives);
+});
+onEvent("button4", "click", function() {
+  setScreen("welcome_screen");
+  score = 0;
+  setText("label6",score);
+  lives = 3;
+  setText("label7",lives);
+});
+onEvent("tryAgain_button", "click", function() {
+ makeEverythingShorter;
+});
+onEvent("button4", "click", function() {
+  makeEverythingShorter;
+});
+function makeEverythingShorter(){ 
+setScreen("welcome_screen");
+score = 0;
+setText("label6",score);
+lives = 3;
+setText("label7",lives);
+}
